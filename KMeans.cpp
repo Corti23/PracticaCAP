@@ -15,6 +15,7 @@ std::vector<Point> KMeans::initializeCentroids(const std::vector<Point>& data) {
     for (int i = 0; i < k; ++i) {
         centroids.push_back(data[dist(gen)]);
     }
+
     return centroids;
 }
 
@@ -27,13 +28,16 @@ std::vector<int> KMeans::assignClusters(const std::vector<Point>& data) {
 
         for (size_t j = 0; j < centroids.size(); ++j) {
             float d = distance(data[i], centroids[j]);
+
             if (d < minDist) {
                 minDist = d;
                 bestCluster = j;
             }
         }
+
         labels[i] = bestCluster;
     }
+
     return labels;
 }
 
@@ -53,6 +57,7 @@ std::vector<Point> KMeans::updateCentroids(const std::vector<Point>& data, const
             newCentroids[i].y /= counts[i];
         }
     }
+
     return newCentroids;
 }
 
@@ -66,7 +71,11 @@ void KMeans::run(std::vector<Point>& data) {
     for (int i = 0; i < 10; ++i) {
         labels = assignClusters(data);
         newCentroids = updateCentroids(data, labels);
-        if (newCentroids == centroids) break;
+
+        if (newCentroids == centroids) {
+            break;
+        }
+
         centroids = newCentroids;
     }
 

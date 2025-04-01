@@ -29,13 +29,16 @@ void DataGenerator::generateData(const std::string& filename, int nClusters, int
     }
 
     std::ofstream file(filename, std::ios::binary);
+
     if (!file) {
         std::cerr << "Error al abrir el archivo para escritura." << std::endl;
+
         return;
     }
 
     int nFilas = nClusters * nPointsPerCluster;
     int nCol = 2;
+
     file.write(reinterpret_cast<char*>(&nFilas), sizeof(int));
     file.write(reinterpret_cast<char*>(&nCol), sizeof(int));
     file.write(reinterpret_cast<char*>(data.data()), data.size() * sizeof(Point));
@@ -44,8 +47,10 @@ void DataGenerator::generateData(const std::string& filename, int nClusters, int
 
 std::vector<Point> DataGenerator::readBinaryData(const std::string& filename) {
     std::ifstream file(filename, std::ios::binary);
+
     if (!file) {
         std::cerr << "Error al abrir el archivo." << std::endl;
+
         return {};
     }
 
@@ -55,10 +60,12 @@ std::vector<Point> DataGenerator::readBinaryData(const std::string& filename) {
 
     if (numCols != 2) {
         std::cerr << "Formato incorrecto, se esperaban 2 columnas." << std::endl;
+
         return {};
     }
 
     std::vector<Point> data(numRows);
+    
     file.read(reinterpret_cast<char*>(data.data()), numRows * sizeof(Point));
     file.close();
 
