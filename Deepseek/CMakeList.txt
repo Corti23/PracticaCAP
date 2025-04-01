@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.10)
+project(kmeans_mpi_omp)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(MPI REQUIRED)
+
+add_executable(kmeans_mpi_omp
+    src/main.cpp
+    src/Point.cpp
+    src/Cluster.cpp
+    src/DataReader.cpp
+    src/Statistics.cpp
+    src/KMeansMPI.cpp
+)
+
+target_include_directories(kmeans_mpi_omp PRIVATE include)
+target_link_libraries(kmeans_mpi_omp PRIVATE MPI::MPI_CXX)
+target_compile_options(kmeans_mpi_omp PRIVATE -fopenmp)
+target_link_options(kmeans_mpi_omp PRIVATE -fopenmp)
