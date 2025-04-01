@@ -1,19 +1,16 @@
-#include "DataHandler.h"
+#include "DataGenerator.h"
 #include "KMeans.h"
 #include <iostream>
 
 int main() {
     std::string filename = "salida.bin";
-    std::vector<Point> data = DataHandler::readBinaryData(filename);
+    DataGenerator::generateData(filename, 2, 50);
+    std::vector<Point> data = DataGenerator::readBinaryData(filename);
 
-    if (data.empty()) {
-        return 1;
+    if (!data.empty()) {
+        KMeans kmeans(2);
+        kmeans.run(data);
     }
-    
-    int k = 2;
-    
-    KMeans kmeans(k);
-    kmeans.fit(data);
-    
+
     return 0;
 }
