@@ -116,7 +116,7 @@ std::vector<Point> updateCentroids(const std::vector<Point>& data, const std::ve
     return newCentroids;
 }
 
-int main() {
+/*int main() {
     std::string filename = "salida.bin";
 
     // Iniciar medición de tiempo
@@ -159,5 +159,40 @@ int main() {
     // Imprimir tiempo de ejecución
     std::cout << "Tiempo de ejecución: " << duration.count() << " segundos\n";
 
+    return 0;
+}
+    */
+   void kmeans(std::vector<Point>& data, int k) {
+    auto start = std::chrono::high_resolution_clock::now();
+    
+    std::vector<Point> centroids = initializeCentroids(data, k);
+    std::vector<int> labels;
+    std::vector<Point> newCentroids;
+    
+    for (int i = 0; i < 10; ++i) { 
+        labels = assignClusters(data, centroids);
+        newCentroids = updateCentroids(data, labels, k);
+        if (newCentroids == centroids) break;
+        centroids = newCentroids;
+    }
+    
+    auto end = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+    
+    std::cout << "Centroides finales:\n";
+    for (const auto& c : centroids) {
+        std::cout << c.x << " " << c.y << std::endl;
+    }
+    std::cout << "Tiempo de ejecución: " << duration.count() << " segundos\n";
+}
+
+int main() {
+    std::string filename = "salida.bin";
+    std::vector<Point> data = readBinaryData(filename);
+    if (data.empty()) return 1;
+    
+    int k = 2;
+    kmeans(data, k);
+    
     return 0;
 }
