@@ -4,9 +4,15 @@
 #include <cstdint>
 
 int main() {
-    const uint32_t num_rows = 100;
+    // Genera un archivo de datos pequeño
+    /*const uint32_t num_rows = 100;
     const uint32_t num_cols = 3;
-    const char* filename = "datos.bin";
+    const char* filename = "datos.bin";*/
+
+    // Genera un archivo de datos grande
+    const uint32_t num_rows = 10000;
+    const uint32_t num_cols = 300;
+    const char* filename = "datosGrandes.bin";
 
     std::ofstream file(filename, std::ios::binary);
     if (!file) {

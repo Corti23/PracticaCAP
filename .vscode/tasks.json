@@ -1,6 +1,68 @@
+/*{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compilar kmeans con OpenMP",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-fopenmp",
+                "-o",
+                "Apartado02",
+                "Apartado02.cpp"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"]
+        },
+        {
+            "label": "Ejecutar kmeans_openmp",
+            "type": "shell",
+            "command": "./Apartado02",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+    ]
+}*/
+
 {
     "version": "2.0.0",
     "tasks": [
+        {
+            "label": "Compilar hello_mpi con cl.exe y MSMPI",
+            "type": "shell",
+            "command": "cl.exe",
+            "args": [
+                "/EHsc",
+                "hello_mpi.cpp",
+                "/I", "C:/Program Files (x86)/Microsoft SDKs/MPI/Include",
+                "/link",
+                "/LIBPATH:C:/Program Files (x86)/Microsoft SDKs/MPI/Lib/x64",
+                "msmpi.lib"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$msCompile"]
+        },
+        {
+            "label": "Ejecutar hello_mpi con 4 procesos",
+            "type": "shell",
+            "command": "mpiexec",
+            "args": [
+                "-n", "4",
+                "hello_mpi.exe"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
         {
             "label": "Compilar kmeans con OpenMP",
             "type": "shell",
