@@ -193,7 +193,7 @@ void kMeans(const std::vector<std::vector<float>>& data, uint32_t num_cols, uint
 
 // Main
 int main() {
-    std::string archivo = "datosGrandes.bin";
+    std::string archivo = "datosTest.bin";
     std::vector<std::vector<float>> data;
 
     uint32_t num_cols = 0;

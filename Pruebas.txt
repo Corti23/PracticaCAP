@@ -1,0 +1,326 @@
+C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP> g++ -o Apartado01 Apartado01.cpp
+C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP> .\Apartado01.exe
+Leidos 80 registros con 4 columnas.
+
+Iteraciones realizadas: 5
+
+Grupo 0 contiene 23 puntos.        
+
+Estadisticas del Grupo 0:
+ - Columna 0:
+      Media: 56.4247
+      Min: 3.74901
+      Max: 91.1824
+      Var: 616.257
+ - Columna 1:
+      Media: 71.9345
+      Min: 1.69779
+      Max: 98.6205
+      Var: 547.408
+ - Columna 2:
+      Media: 69.3782
+      Min: 40.716
+      Max: 95.003
+      Var: 199.498
+ - Columna 3:
+      Media: 67.8558
+      Min: 21.6094
+      Max: 99.6542
+      Var: 730.143
+
+Grupo 1 contiene 16 puntos.
+
+Estadisticas del Grupo 1:
+ - Columna 0:
+      Media: 22.4855
+      Min: 0.0799602
+      Max: 60.5051
+      Var: 490.5
+ - Columna 1:
+      Media: 20.2017
+      Min: 5.78155
+      Max: 45.4982
+      Var: 150.824
+ - Columna 2:
+      Media: 75.479
+      Min: 44.6631
+      Max: 99.5193
+      Var: 284.263
+ - Columna 3:
+      Media: 31.6489
+      Min: 1.48916
+      Max: 96.4341
+      Var: 899.266
+
+Grupo 2 contiene 18 puntos.
+
+Estadisticas del Grupo 2:
+ - Columna 0:
+      Media: 23.6151
+      Min: 3.78461
+      Max: 61.8005
+      Var: 226.421
+ - Columna 1:
+      Media: 28.907
+      Min: 1.14991
+      Max: 72.5493
+      Var: 470.381
+ - Columna 2:
+      Media: 22.5672
+      Min: 1.156
+      Max: 52.8785
+      Var: 227.867
+ - Columna 3:
+      Media: 48.6545
+      Min: 7.07509
+      Max: 93.5437
+      Var: 620.304
+
+Grupo 3 contiene 23 puntos.
+
+Estadisticas del Grupo 3:
+ - Columna 0:
+      Media: 67.3808
+      Min: 41.1725
+      Max: 96.6863
+      Var: 256.062
+ - Columna 1:
+      Media: 53.4101
+      Min: 5.71656
+      Max: 96.5547
+      Var: 752.319
+ - Columna 2:
+      Media: 22.7054
+      Min: 1.03481
+      Max: 52.9616
+      Var: 190.635
+ - Columna 3:
+      Media: 39.7509
+      Min: 6.60723
+      Max: 98.991
+      Var: 417.314
+Tiempo de ejecucion: 0.0219193s
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP> g++ -o Apartado02 Apartado02.cpp
+C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP> .\Apartado02.exe
+Leidos 80 registros con 4 columnas.
+
+Iteraciones realizadas: 5
+
+Grupo 0 contiene 23 puntos.        
+
+Estadisticas del Grupo 0:
+ - Columna 0:
+      Media: 56.4247
+      Min: 3.74901
+      Max: 91.1824
+      Var: 616.257
+ - Columna 1:
+      Media: 71.9345
+      Min: 1.69779
+      Max: 98.6205
+      Var: 547.408
+ - Columna 2:
+      Media: 69.3782
+      Min: 40.716
+      Max: 95.003
+      Var: 199.498
+ - Columna 3:
+      Media: 67.8558
+      Min: 21.6094
+      Max: 99.6542
+      Var: 730.143
+
+Grupo 1 contiene 16 puntos.
+
+Estadisticas del Grupo 1:
+ - Columna 0:
+      Media: 22.4855
+      Min: 0.0799602
+      Max: 60.5051
+      Var: 490.5
+ - Columna 1:
+      Media: 20.2017
+      Min: 5.78155
+      Max: 45.4982
+      Var: 150.824
+ - Columna 2:
+      Media: 75.479
+      Min: 44.6631
+      Max: 99.5193
+      Var: 284.263
+ - Columna 3:
+      Media: 31.6489
+      Min: 1.48916
+      Max: 96.4341
+      Var: 899.266
+
+Grupo 2 contiene 18 puntos.
+
+Estadisticas del Grupo 2:
+ - Columna 0:
+      Media: 23.6151
+      Min: 3.78461
+      Max: 61.8005
+      Var: 226.421
+ - Columna 1:
+      Media: 28.907
+      Min: 1.14991
+      Max: 72.5493
+      Var: 470.381
+ - Columna 2:
+      Media: 22.5672
+      Min: 1.156
+      Max: 52.8785
+      Var: 227.867
+ - Columna 3:
+      Media: 48.6545
+      Min: 7.07509
+      Max: 93.5437
+      Var: 620.304
+
+Grupo 3 contiene 23 puntos.
+
+Estadisticas del Grupo 3:
+ - Columna 0:
+      Media: 67.3808
+      Min: 41.1725
+      Max: 96.6863
+      Var: 256.062
+ - Columna 1:
+      Media: 53.4101
+      Min: 5.71656
+      Max: 96.5547
+      Var: 752.319
+ - Columna 2:
+      Media: 22.7054
+      Min: 1.03481
+      Max: 52.9616
+      Var: 190.635
+ - Columna 3:
+      Media: 39.7509
+      Min: 6.60723
+      Max: 98.991
+      Var: 417.314
+Tiempo de ejecucion: 0.0224125s
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP>cl.exe /EHsc Apartado03.cpp /I "C:\Program Files (x86)\Microsoft SDKs\MPI\Include" /link /LIBPATH:"C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64" msmpi.lib
+Compilador de optimización de C/C++ de Microsoft (R) versión 19.43.34810 para x64
+(C) Microsoft Corporation. Todos los derechos reservados.
+
+Apartado03.cpp
+Microsoft (R) Incremental Linker Version 14.43.34810.0
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+/out:Apartado03.exe
+"/LIBPATH:C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64"
+msmpi.lib
+Apartado03.obj
+
+C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP>mpiexec -n 4 Apartado03.exe datosTest.bin 4
+Iteracion 0 - Cambios: 47 (58.75%)
+Iteracion 1 - Cambios: 7 (8.75%)
+Iteracion 2 - Cambios: 10 (12.5%)
+Iteracion 3 - Cambios: 3 (3.75%)
+
+Centroides finales:
+Grupo 0 -> 54.3283 79.5173 67.8042 63.9266
+Grupo 1 -> 20.2232 20.7991 76.7823 30.7273
+Grupo 2 -> 26.1333 29.3683 23.7404 47.3827
+Grupo 3 -> 69.3942 48.2193 28.3903 46.0873
+
+Tiempo total de ejecucion: 0.0089158 segundos.
+
+Estadisticas por grupo y columna:
+
+    Grupo 0 (23 puntos):
+      - Columna 0:
+          Media: 56.1258
+          Min: 3.74901
+          Max: 91.1824
+          Var: 617.463
+      - Columna 1:
+          Media: 75.102
+          Min: 1.69779
+          Max: 98.6205
+          Var: 453.249
+      - Columna 2:
+          Media: 67.8652
+          Min: 19.4867
+          Max: 95.003
+          Var: 295.529
+      - Columna 3:
+          Media: 66.3902
+          Min: 21.6094
+          Max: 99.6542
+          Var: 699.63
+
+    Grupo 1 (16 puntos):
+      - Columna 0:
+          Media: 22.4855
+          Min: 0.0799602
+          Max: 60.5051
+          Var: 490.5
+      - Columna 1:
+          Media: 20.2017
+          Min: 5.78155
+          Max: 45.4982
+          Var: 150.824
+      - Columna 2:
+          Media: 75.479
+          Min: 44.6631
+          Max: 99.5193
+          Var: 284.262
+      - Columna 3:
+          Media: 31.6489
+          Min: 1.48916
+          Max: 96.4341
+          Var: 899.265
+
+    Grupo 2 (19 puntos):
+      - Columna 0:
+          Media: 24.5392
+          Min: 3.78461
+          Max: 61.8005
+          Var: 229.874
+      - Columna 1:
+          Media: 30.3223
+          Min: 1.14991
+          Max: 72.5493
+          Var: 481.68
+      - Columna 2:
+          Media: 22.0462
+          Min: 1.156
+          Max: 52.8785
+          Var: 220.76
+      - Columna 3:
+          Media: 47.4832
+          Min: 7.07509
+          Max: 93.5437
+          Var: 612.354
+
+    Grupo 3 (22 puntos):
+      - Columna 0:
+          Media: 68.8846
+          Min: 45.4396
+          Max: 96.6863
+          Var: 226.018
+      - Columna 1:
+          Media: 49.9901
+          Min: 5.71656
+          Max: 96.5547
+          Var: 739.826
+      - Columna 2:
+          Media: 24.7435
+          Min: 1.03481
+          Max: 54.2851
+          Var: 235.426
+      - Columna 3:
+          Media: 41.89
+          Min: 6.60723
+          Max: 98.991
+          Var: 539.386

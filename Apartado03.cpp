@@ -7,7 +7,6 @@
 #include <cmath>
 #include <string>
 
-
 void leerParteDelArchivo(const std::string& filename, std::vector<std::vector<float>>& data, uint32_t& num_cols, int rank, int size) {
     std::ifstream file(filename, std::ios::binary);
 
@@ -67,6 +66,68 @@ void calcularCentroideLocal(const std::vector<std::vector<float>>& data, const s
 
         for (uint32_t j = 0; j < num_cols; ++j) {
             centroides_locales[grupo][j] += data[i][j];
+        }
+    }
+}
+
+void calcularEstadisticasPorGrupoMPI(const std::vector<std::vector<float>>& data, const std::vector<uint32_t>& grupos, uint32_t k, uint32_t num_cols, int rank, int size) {
+    // Buffers locales: sumas, min, max, suma_cuadrados y contadores
+    std::vector<std::vector<float>> suma_local(k, std::vector<float>(num_cols, 0.0f));
+    std::vector<std::vector<float>> suma2_local(k, std::vector<float>(num_cols, 0.0f));
+    std::vector<std::vector<float>> min_local(k, std::vector<float>(num_cols, std::numeric_limits<float>::max()));
+    std::vector<std::vector<float>> max_local(k, std::vector<float>(num_cols, std::numeric_limits<float>::lowest()));
+    std::vector<uint32_t> contador_local(k, 0);
+
+    for (size_t i = 0; i < data.size(); ++i) {
+        uint32_t g = grupos[i];
+        contador_local[g]++;
+
+        for (uint32_t j = 0; j < num_cols; ++j) {
+            float val = data[i][j];
+
+            suma_local[g][j] += val;
+            suma2_local[g][j] += val * val;
+            min_local[g][j] = std::min(min_local[g][j], val);
+            max_local[g][j] = std::max(max_local[g][j], val);
+        }
+    }
+
+    // Buffers globales
+    std::vector<std::vector<float>> suma_total(k, std::vector<float>(num_cols));
+    std::vector<std::vector<float>> suma2_total(k, std::vector<float>(num_cols));
+    std::vector<std::vector<float>> min_global(k, std::vector<float>(num_cols));
+    std::vector<std::vector<float>> max_global(k, std::vector<float>(num_cols));
+    std::vector<uint32_t> contador_total(k);
+
+    for (uint32_t g = 0; g < k; ++g) {
+        MPI_Reduce(suma_local[g].data(), suma_total[g].data(), num_cols, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+        MPI_Reduce(suma2_local[g].data(), suma2_total[g].data(), num_cols, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+        MPI_Reduce(min_local[g].data(), min_global[g].data(), num_cols, MPI_FLOAT, MPI_MIN, 0, MPI_COMM_WORLD);
+        MPI_Reduce(max_local[g].data(), max_global[g].data(), num_cols, MPI_FLOAT, MPI_MAX, 0, MPI_COMM_WORLD);
+        MPI_Reduce(&contador_local[g], &contador_total[g], 1, MPI_UNSIGNED, MPI_SUM, 0, MPI_COMM_WORLD);
+    }
+
+    if (rank == 0) {
+        std::cout << "\nEstadisticas por grupo y columna:" << std::endl;
+
+        for (uint32_t g = 0; g < k; ++g) {
+            std::cout << "\n    Grupo " << g << " (" << contador_total[g] << " puntos):" << std::endl;
+
+            if (contador_total[g] == 0) {
+                std::cout << "  (vacio)" << std::endl;
+                continue;
+            }
+
+            for (uint32_t j = 0; j < num_cols; ++j) {
+                float media = suma_total[g][j] / contador_total[g];
+                float varianza = (suma2_total[g][j] / contador_total[g]) - (media * media);
+
+                std::cout << "      - Columna " << j << ":\n"
+                          << "          Media: " << media << "\n"
+                          << "          Min: " << min_global[g][j] << "\n"
+                          << "          Max: " << max_global[g][j] << "\n"
+                          << "          Var: " << varianza << std::endl;
+            }
         }
     }
 }
@@ -187,6 +248,8 @@ int main(int argc, char* argv[]) {
 
         std::cout << "\nTiempo total de ejecucion: " << (tiempo_fin - tiempo_inicio) << " segundos." << std::endl;
     }
+
+    calcularEstadisticasPorGrupoMPI(data, grupos, k, num_cols, rank, size);
 
     MPI_Finalize();
 

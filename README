@@ -1,0 +1,45 @@
+Para poder ejecutar cada APARTADO de forma correcta tenemos este README en el cual explicamos los pasos que hay que seguir para que compilen y se ejecuten correctamente:
+
+- GENERAR ARCHIVO BINARIO:
+    Para generar el archivo binario con los valores sobre los cuales vamos a trabajar, cuando lo compilemos y ejecutemos, tendremos que definir el tamaño de filas y columnas que queramos y también el nombre del archivo.
+
+    Para compilarlo hay que abrir una terminal, ir a la ruta donde se encuentre la carpeta donde está el archivo, GenerarArchivoBinario.cpp, mediante "cd ruta" en mi caso quedaría así: 
+        cd C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP
+
+    El siguiente paso sería compilar el archivo GenerarArchivoBinario.cpp para generar el ejecutable y asi poder ejecutarlo correctamente, mediante "g++ -o NombreDelEjecutable Archivo.cpp" en mi caso quedaría así:
+        g++ -o GenerarArchivoBinario GenerarArchivoBinario.cpp
+
+    Por último para ejecutar el ejecutable tenemos que poner ".\NombreDelEjecutable.exe" en mi caso quedaría así:
+        .\GenerarArchivoBinario.exe        
+    
+- APARTADO 1 - SECUENCIAL:
+    Para compilarlo hay que abrir una terminal, ir a la ruta donde se encuentre la carpeta donde está el archivo, Apartado01.cpp, mediante "cd ruta" en mi caso quedaría así: 
+        cd C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP
+
+    El siguiente paso sería compilar el archivo Apartado01.cpp para generar el ejecutable y asi poder ejecutarlo correctamente, mediante "g++ -o NombreDelEjecutable Archivo.cpp" en mi caso quedaría así:
+        g++ -o Apartado01 Apartado01.cpp
+
+    Por último para ejecutar el ejecutable tenemos que poner ".\NombreDelEjecutable.exe" en mi caso quedaría así:
+        .\Apartado01.exe  
+
+- APARTADO 2 - OPEN MP:
+    Para compilarlo hay que abrir una terminal, ir a la ruta donde se encuentre la carpeta donde está el archivo, Apartado02.cpp, mediante "cd ruta" en mi caso quedaría así: 
+        cd C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP
+
+    El siguiente paso sería compilar el archivo Apartado02.cpp para generar el ejecutable y asi poder ejecutarlo correctamente, mediante "g++ -fopenmp -o NombreDelEjecutable Archivo.cpp" en mi caso quedaría así:
+        g++ -fopenmp -o Apartado02 Apartado02.cpp
+
+    Por último para ejecutar el ejecutable tenemos que poner ".\NombreDelEjecutable.exe" en mi caso quedaría así:
+        .\Apartado02.exe 
+
+- APARTADO 3 - MPI:
+    Para compilarlo hay que abrir la terminal "Developer Command Prompt for VS 2022" , ir a la ruta donde se encuentre la carpeta donde está el archivo, Apartado03.cpp, mediante "cd ruta" en mi caso quedaría así: 
+        cd C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP
+
+    El siguiente paso sería compilar el archivo Apartado03.cpp para generar el ejecutable y asi poder ejecutarlo correctamente, mediante "cl.exe /EHsc Archivo.cpp /I "C:\Program Files (x86)\Microsoft SDKs\MPI\Include" /link /LIBPATH:"C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64" msmpi.lib" en mi caso quedaría así:
+        cl.exe /EHsc Apartado03.cpp /I "C:\Program Files (x86)\Microsoft SDKs\MPI\Include" /link /LIBPATH:"C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64" msmpi.lib
+
+    Por último para ejecutar el ejecutable tenemos que poner "mpiexec -n 4 NombreDelEjecutable.exe ArchivoBinario.bin 4" en mi caso quedaría así:
+        mpiexec -n 4 Apartado03.exe datosTest.bin 4 
+
+    Si queremos cambiar el numero de procesos, cambiamos el primer número que en el ejemplo es el 4, por otro número de procesos que queramos probar y lo mismo con los grupos, los cuales definimos en el último número que también en el ejemplo es el 4, por otro que queramos probar.

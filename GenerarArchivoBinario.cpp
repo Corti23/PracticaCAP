@@ -4,15 +4,18 @@
 #include <cstdint>
 
 int main() {
-    // Genera un archivo de datos pequeño
-    /*const uint32_t num_rows = 100;
-    const uint32_t num_cols = 3;
-    const char* filename = "datos.bin";*/
+    uint32_t num_rows, num_cols;
+    std::string filename;
 
-    // Genera un archivo de datos grande
-    const uint32_t num_rows = 10000;
-    const uint32_t num_cols = 300;
-    const char* filename = "datosGrandes.bin";
+     // Entrada por pantalla
+     std::cout << "Introduce el número de filas: ";
+     std::cin >> num_rows;
+ 
+     std::cout << "Introduce el número de columnas: ";
+     std::cin >> num_cols;
+ 
+     std::cout << "Introduce el nombre del archivo de salida (por ejemplo: datos.bin): ";
+     std::cin >> filename;
 
     std::ofstream file(filename, std::ios::binary);
     if (!file) {
@@ -38,7 +41,7 @@ int main() {
     }
 
     file.close();
-    std::cout << "Archivo '" << filename << "' generado con exito." << std::endl;
+    std::cout << "Archivo '" << filename << "' generado con exito con " << num_rows << " filas y " << num_cols << " columnas." << std::endl;
 
     return 0;
 }
