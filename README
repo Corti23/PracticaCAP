@@ -1,5 +1,14 @@
 Para poder ejecutar cada APARTADO de forma correcta tenemos este README en el cual explicamos los pasos que hay que seguir para que compilen y se ejecuten correctamente:
 
+- ARCHIVOS NECESARIOS PARA LA CORRECTA COMPILACIÓN Y EJECUCUIÓN DE LA PRÁCTICA:
+    MinGW64: 
+        · winlibs-x86_64-posix-seh-gcc-12.4.0-mingw-w64ucrt-12.0.0-r1.zip
+    MPI:
+        · msmpisdk.msi
+        · msmpisetup.exe
+    Visual Studio:
+        · VisualStudioSetup.exe
+
 - GENERAR ARCHIVO BINARIO:
     Para generar el archivo binario con los valores sobre los cuales vamos a trabajar, cuando lo compilemos y ejecutemos, tendremos que definir el tamaño de filas y columnas que queramos y también el nombre del archivo.
 
@@ -33,7 +42,7 @@ Para poder ejecutar cada APARTADO de forma correcta tenemos este README en el cu
         .\Apartado02.exe 
 
 - APARTADO 3 - MPI:
-    Para compilarlo hay que abrir la terminal "Developer Command Prompt for VS 2022" , ir a la ruta donde se encuentre la carpeta donde está el archivo, Apartado03.cpp, mediante "cd ruta" en mi caso quedaría así: 
+    Para compilarlo hay que abrir la terminal "x64 Native Tools Command Prompt for VS 2022" , ir a la ruta donde se encuentre la carpeta donde está el archivo, Apartado03.cpp, mediante "cd ruta" en mi caso quedaría así: 
         cd C:\Users\vcald\Documents\ComputacionDeAltasPrestaciones\practicas\PracticaCAP
 
     El siguiente paso sería compilar el archivo Apartado03.cpp para generar el ejecutable y asi poder ejecutarlo correctamente, mediante "cl.exe /EHsc Archivo.cpp /I "C:\Program Files (x86)\Microsoft SDKs\MPI\Include" /link /LIBPATH:"C:\Program Files (x86)\Microsoft SDKs\MPI\Lib\x64" msmpi.lib" en mi caso quedaría así:
